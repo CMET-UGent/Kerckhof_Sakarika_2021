@@ -21,3 +21,4 @@ LICENSE | License
 README.md | This file
 raxml_code.sh | RAxML options used to infer phylogeny (SI Figure 1)
 Selective_plating_results.R | Processing of selective plating results (Figure 2)
+Amino_acid_composition.R | Code to reproduce Figure 4 and Figure 5
