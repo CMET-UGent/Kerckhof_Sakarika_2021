@@ -5,7 +5,7 @@ library(readxl)
 fig4dat <- read_xlsx(path="source_files/Amino_acids.xlsx",sheet="fig4_for_R")
 fig5dat <- read_xlsx(path="source_files/Amino_acids.xlsx",sheet="fig5_for_R")
 #### Data wrangling ------------------------------------------------------------
-fig4dat.long <- fig4dat %>% pivot_longer(cols = `MOB1·HOB7`:XAUT)
+fig4dat.long <- fig4dat %>% pivot_longer(cols = `MOB1·HOB7`:Fishmeal)
 fig4dat.long$comborpure <- "Combinations"
 fig4dat.long$comborpure[!(grepl("HOB",fig4dat.long$name)|
                             grepl("CNEC",fig4dat.long$name)|
@@ -16,13 +16,23 @@ fig4dat.long$comborpure[(!grepl("MOB",fig4dat.long$name)|
                            grepl("XAUT",fig4dat.long$name))] <- "HOB"
 fig4dat.long$comborpure[fig4dat.long$name=="MOB6·CNEC"|
                           fig4dat.long$name=="MOB6·XAUT"] <- "Combinations"
+fig4dat.long$comborpure[fig4dat.long$name=="Tofu"|
+                          fig4dat.long$name=="Soybean"|
+                          fig4dat.long$name=="Whole egg"|
+                          fig4dat.long$name=="Fishmeal"] <- "Food/Feed"
+
+
 fig4dat.long$name <- factor(fig4dat.long$name, levels=c("HOB7","HOB13","HOB15",
                                                         "HOB16","HOB18",
                                                         "CNEC","XAUT","MOB1","MOB4","MOB8",
                                                         "MOB1·HOB7","MOB4·HOB13","MOB5·HOB16",
                                                         "MOB6·CNEC","MOB6·HOB15","MOB6·HOB16",
                                                         "MOB6·XAUT","MOB8·HOB13","MOB8·HOB15",
-                                                        "MOB8·HOB18"))
+                                                        "MOB8·HOB18","Tofu","Soybean",
+                                                        "Whole egg","Fishmeal"))
+fig4dat.long$comborpure <- factor(fig4dat.long$comborpure,levels=c("Combinations","MOB",
+                                                                   "HOB","Food/Feed"))
+
 fig5dat$Category[fig5dat$Category=="Foodstuff"] <- "Food ingredient"
 fig5dat$Category <- factor(fig5dat$Category, levels=c("Combinations","MOB",
                                                       "HOB","Food ingredient"))
