@@ -1,6 +1,8 @@
 # Kerckhof_Sakarika_2021
 
-Accompanying code to Kerckhof, Sakarika, *et. al.* 2021
+Accompanying code to [Kerckhof, Sakarika, *et. al.* 2021](https://www.frontiersin.org/articles/10.3389/fbioe.2021.733753/full)
+
+Kerckhof FM, Sakarika M, Van Giel M, Muys M, Vermeir P, De Vrieze J, Vlaeminck SE, Rabaey K, Boon N. From Biogas and Hydrogen to Microbial Protein Through Co-Cultivation of Methane and Hydrogen Oxidizing Bacteria. Front Bioeng Biotechnol. 2021 Aug 30;9:733753. doi: 10.3389/fbioe.2021.733753. PMID: 34527661; PMCID: PMC8435580.
 
 ## Dependencies
 
